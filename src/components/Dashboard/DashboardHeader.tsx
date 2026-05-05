@@ -22,6 +22,7 @@ export const DashboardHeader = ({ title, onExport }: DashboardHeaderProps) => {
               Export CSV
             </Button>
           )}
+          <Button variant="secondary" size="sm" onClick={() => alert('dummy button clicked!')}>Dummy Button</Button>
           {user && (
             <div className="flex items-center gap-2">
               <span className="text-sm text-gray-600">{user.name}</span>
