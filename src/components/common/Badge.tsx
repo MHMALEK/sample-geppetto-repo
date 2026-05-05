@@ -38,6 +38,7 @@ const STATUS_STYLES: Record<StatusBadgeProps['status'], string> = {
   under_review: 'bg-blue-100 text-blue-800',
 };
 
+
 export const StatusBadge = ({ status }: StatusBadgeProps) => (
   <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${STATUS_STYLES[status]}`}>
     {status.replace('_', ' ')}
