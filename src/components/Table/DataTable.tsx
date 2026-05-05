@@ -5,7 +5,6 @@ import { useSupplierList } from 'hooks/useSuppliers';
 import { useFilters } from 'hooks/useFilters';
 import { TableFilter } from './TableFilter';
 import type { Supplier } from 'types/supplier.types';
-
 interface DataTableProps {
   onRowClick?: (supplier: Supplier) => void;
 }
