@@ -1,6 +1,6 @@
 import { Spinner } from 'components/common/Spinner';
 import { StatusBadge } from 'components/common/Badge';
-import { RiskProgressBar } from 'components/common/RiskProgressBar';
+import { RiskCell } from './RiskCell';
 import { useSupplierList } from 'hooks/useSuppliers';
 import { useFilters } from 'hooks/useFilters';
 import { TableFilter } from './TableFilter';
@@ -49,7 +49,7 @@ export const DataTable = ({ onRowClick }: DataTableProps) => {
                 <td className="px-4 py-3 text-gray-600">{supplier.country}</td>
                 <td className="px-4 py-3 text-gray-600">{supplier.category}</td>
                 <td className="px-4 py-3">
-                  <RiskProgressBar score={supplier.riskScore} />
+                  <RiskCell score={supplier.riskScore} />
                 </td>
                 <td className="px-4 py-3">
                   <StatusBadge status={supplier.status} />
