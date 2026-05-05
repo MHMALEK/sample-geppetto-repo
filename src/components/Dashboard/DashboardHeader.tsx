@@ -15,7 +15,6 @@ export const DashboardHeader = ({ title, onExport }: DashboardHeaderProps) => {
         <div>
           <h1 className="text-xl font-semibold text-gray-900">{title}</h1>
           <p className="text-sm text-gray-500 mt-0.5">Supply chain risk dashboard</p>
-          <p className="text-sm text-gray-500 mt-0.5">This is the new text</p>
         </div>
         <div className="flex items-center gap-3">
           {onExport && (
@@ -23,8 +22,8 @@ export const DashboardHeader = ({ title, onExport }: DashboardHeaderProps) => {
               Export CSV
             </Button>
           )}
-           <Button variant="secondary" size="sm" onClick={() => alert('dummy text')}>Dummy Text</Button>
-           <Button variant="secondary" size="sm" onClick={() => alert('new button clicked')}>New Button</Button>
+          <Button variant="primary" size="sm">New Button</Button>
+          <Button variant="primary" size="sm">New Button</Button>
 
           {user && (
             <div className="flex items-center gap-2">
