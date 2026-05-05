@@ -1,6 +1,6 @@
 import { Spinner } from 'components/common/Spinner';
 import { StatusBadge } from 'components/common/Badge';
-import { RiskProgressBar } from '../common/RiskProgressBar';
+import { RiskProgressBar } from 'components/common/RiskProgressBar';
 import { useSupplierList } from 'hooks/useSuppliers';
 import { useFilters } from 'hooks/useFilters';
 import { TableFilter } from './TableFilter';
