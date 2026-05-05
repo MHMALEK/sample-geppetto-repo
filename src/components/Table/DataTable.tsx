@@ -50,7 +50,6 @@ export const DataTable = ({ onRowClick }: DataTableProps) => {
                 <td className="px-4 py-3 text-gray-600">{supplier.country}</td>
                 <td className="px-4 py-3 text-gray-600">{supplier.category}</td>
                 <td className="px-4 py-3">
-                  // Show risk score as a progress bar
                   <RiskProgressBar score={supplier.riskScore} />
                 </td>
                 <td className="px-4 py-3">
