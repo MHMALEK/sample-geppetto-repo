@@ -10,7 +10,7 @@ const queryClient = new QueryClient({
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <div className="min-h-screen bg-gray-50">
-      <DashboardHeader title="Supplier Risk Dashboard" supplierCount={248} />
+      <DashboardHeader title="Supplier Risk Dashboard" />
       <main className="p-6 space-y-6">
         <div className="grid grid-cols-4 gap-4">
           <MetricsCard title="Total Suppliers" value="248" icon="🏭" trend={{ value: 4, label: 'vs last month' }} />
