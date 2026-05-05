@@ -7,12 +7,22 @@ const RISK_STYLES: Record<RiskLevel, string> = {
   critical: 'bg-red-100 text-red-800',
 };
 
+const RISK_TOOLTIPS: Record<RiskLevel, string> = {
+  low: 'Risk Score: 0-25%',
+  medium: 'Risk Score: 26-50%',
+  high: 'Risk Score: 51-75%',
+  critical: 'Risk Score: 76-100%',
+};
+
 interface RiskBadgeProps {
   level: RiskLevel;
 }
 
 export const RiskBadge = ({ level }: RiskBadgeProps) => (
-  <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize ${RISK_STYLES[level]}`}>
+  <span
+    className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize ${RISK_STYLES[level]}`}
+    title={RISK_TOOLTIPS[level]}
+  >
     {level}
   </span>
 );
