@@ -18,9 +18,6 @@ interface RiskBadgeProps {
   level: RiskLevel;
 }
 
-/**
- * A badge that displays a risk level with a tooltip showing the score range.
- */
 export const RiskBadge = ({ level }: RiskBadgeProps) => (
   <span
     className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize ${RISK_STYLES[level]}`}
