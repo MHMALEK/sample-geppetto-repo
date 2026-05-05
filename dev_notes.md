@@ -1,0 +1,1 @@
+The risk score progress bar was already implemented. No changes were necessary.
