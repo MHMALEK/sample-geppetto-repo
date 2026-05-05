@@ -18,6 +18,7 @@ interface RiskBadgeProps {
   level: RiskLevel;
 }
 
+// RiskBadge component with tooltip
 export const RiskBadge = ({ level }: RiskBadgeProps) => (
   <span
     className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize ${RISK_STYLES[level]}`}
