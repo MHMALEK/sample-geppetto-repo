@@ -1,6 +1,7 @@
 import { getRequest, postRequest, putRequest } from 'api/common.api';
 import type { Supplier, SupplierFilters, SupplierListResponse } from 'types/supplier.types';
 import type { PaginationParams, SortParams } from 'types/common.types';
+import { MOCK_SUPPLIERS } from '../mocks/suppliers';
 
 export const SUPPLIERS_URL = '/api/suppliers';
 
@@ -9,7 +10,8 @@ export const fetchSuppliers = (
   pagination: PaginationParams,
   sort?: SortParams
 ): Promise<SupplierListResponse> =>
-  getRequest(SUPPLIERS_URL, { ...filters, ...pagination, ...sort });
+  getRequest<SupplierListResponse>(SUPPLIERS_URL, { ...filters, ...pagination, ...sort })
+    .catch(() => MOCK_SUPPLIERS);
 
 export const fetchSupplierById = (id: string): Promise<Supplier> =>
   getRequest(`${SUPPLIERS_URL}/${id}`);
