@@ -48,6 +48,7 @@ export const DataTable = ({ onRowClick }: DataTableProps) => {
                 <td className="px-4 py-3 font-medium text-gray-900">{supplier.name}</td>
                 <td className="px-4 py-3 text-gray-600">{supplier.country}</td>
                 <td className="px-4 py-3 text-gray-600">{supplier.category}</td>
+                               {/* Risk Score Column */}
                 <td className="px-4 py-3">
                   <RiskProgressBar score={supplier.riskScore} />
                 </td>
