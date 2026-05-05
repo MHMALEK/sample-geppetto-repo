@@ -7,16 +7,16 @@ const RISK_STYLES: Record<RiskLevel, string> = {
   critical: 'bg-red-100 text-red-800',
 };
 
-interface RiskBadgeProps {
-  level: RiskLevel;
-}
-
 const RISK_TOOLTIPS: Record<RiskLevel, string> = {
   low: 'Risk Score: 0-25%',
   medium: 'Risk Score: 26-50%',
   high: 'Risk Score: 51-75%',
   critical: 'Risk Score: 76-100%',
 };
+
+interface RiskBadgeProps {
+  level: RiskLevel;
+}
 
 export const RiskBadge = ({ level }: RiskBadgeProps) => (
   <span
