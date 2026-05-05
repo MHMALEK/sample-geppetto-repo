@@ -18,7 +18,7 @@ export const RiskProgressBar: React.FC<RiskProgressBarProps> = ({ score }) => {
 
   return (
     <div className="flex items-center gap-2">
-      <div className="w-24 bg-gray-200 rounded-full h-2.5">
+      <div className="w-32 bg-gray-200 rounded-full h-2.5">
         <div className={`h-2.5 rounded-full ${colorClass}`} style={{ width }}></div>
       </div>
       <span className="text-sm font-medium text-gray-700">{score}</span>
