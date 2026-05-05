@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { DashboardHeader } from 'components/Dashboard/DashboardHeader';
 import { MetricsCard } from 'components/Dashboard/MetricsCard';
 import { DataTable } from 'components/Table/DataTable';
+import { Button } from 'components/common/Button';
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { retry: 1, refetchOnWindowFocus: false } },
@@ -19,6 +20,9 @@ const App = () => (
           <MetricsCard title="Avg Risk Score" value="34%" icon="📊" trend={{ value: -1.5, label: 'vs last month' }} />
         </div>
         <DataTable />
+        <div className="flex justify-center pt-4">
+          <Button>New Button</Button>
+        </div>
       </main>
     </div>
   </QueryClientProvider>
