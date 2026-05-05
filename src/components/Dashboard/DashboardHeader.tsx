@@ -23,6 +23,7 @@ export const DashboardHeader = ({ title, onExport }: DashboardHeaderProps) => {
             </Button>
           )}
            <Button variant="secondary" size="sm" onClick={() => alert('dummy text')}>Dummy Text</Button>
+           <Button variant="secondary" size="sm" onClick={() => alert('new button clicked')}>New Button</Button>
 
           {user && (
             <div className="flex items-center gap-2">
