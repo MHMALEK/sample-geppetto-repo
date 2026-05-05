@@ -1,5 +1,6 @@
 import { Spinner } from 'components/common/Spinner';
-import { RiskBadge, StatusBadge } from 'components/common/Badge';
+import { StatusBadge } from 'components/common/Badge';
+import { RiskProgressBar } from 'components/common/RiskProgressBar';
 import { useSupplierList } from 'hooks/useSuppliers';
 import { useFilters } from 'hooks/useFilters';
 import { TableFilter } from './TableFilter';
@@ -25,7 +26,7 @@ export const DataTable = ({ onRowClick }: DataTableProps) => {
         <table className="w-full text-sm">
           <thead className="bg-gray-50 border-b border-gray-200">
             <tr>
-              {['Supplier', 'Country', 'Category', 'Risk', 'Status', 'Last Audit'].map((h) => (
+              {['Supplier', 'Country', 'Category', 'Risk Score', 'Status', 'Last Audit'].map((h) => (
                 <th key={h} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide">
                   {h}
                 </th>
@@ -49,7 +50,7 @@ export const DataTable = ({ onRowClick }: DataTableProps) => {
                 <td className="px-4 py-3 text-gray-600">{supplier.country}</td>
                 <td className="px-4 py-3 text-gray-600">{supplier.category}</td>
                 <td className="px-4 py-3">
-                  <RiskBadge level={supplier.riskLevel} />
+                  <RiskProgressBar score={supplier.riskScore} />
                 </td>
                 <td className="px-4 py-3">
                   <StatusBadge status={supplier.status} />
