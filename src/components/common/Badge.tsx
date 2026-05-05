@@ -19,6 +19,7 @@ interface RiskBadgeProps {
 }
 
 export const RiskBadge = ({ level }: RiskBadgeProps) => (
+  // Tooltip shows risk score breakdown on hover
   <span
     className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize ${RISK_STYLES[level]}`}
     title={RISK_TOOLTIPS[level]}
