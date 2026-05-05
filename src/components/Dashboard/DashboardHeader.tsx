@@ -4,17 +4,22 @@ import { Button } from 'components/common/Button';
 interface DashboardHeaderProps {
   title: string;
   onExport?: () => void;
+  supplierCount?: number;
 }
 
-export const DashboardHeader = ({ title, onExport }: DashboardHeaderProps) => {
+export const DashboardHeader = ({ title, onExport, supplierCount }: DashboardHeaderProps) => {
   const { user, logout } = useAuth();
 
   return (
     <header className="bg-white border-b border-gray-200 px-6 py-4">
       <div className="flex items-center justify-between">
-        <div>
+        <div className="flex items-center gap-4">
           <h1 className="text-xl font-semibold text-gray-900">{title}</h1>
-          <p className="text-sm text-gray-500 mt-0.5">Supply chain risk dashboard</p>
+          {supplierCount !== undefined && (
+            <span className="bg-gray-100 text-gray-600 px-3 py-1 text-sm font-medium rounded-full">
+              {supplierCount} suppliers
+            </span>
+          )}
         </div>
         <div className="flex items-center gap-3">
           {onExport && (
