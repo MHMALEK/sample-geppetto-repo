@@ -4,6 +4,7 @@ import { useSupplierList } from 'hooks/useSuppliers';
 import { useFilters } from 'hooks/useFilters';
 import { TableFilter } from './TableFilter';
 import type { Supplier } from 'types/supplier.types';
+import { Button } from 'components/common/Button';
 
 interface DataTableProps {
   onRowClick?: (supplier: Supplier) => void;
@@ -39,24 +40,57 @@ export const DataTable = ({ onRowClick }: DataTableProps) => {
                   <Spinner className="mx-auto" />
                 </td>
               </tr>
-            ) : data?.data.map((supplier) => (
-              <tr
-                key={supplier.id}
-                onClick={() => onRowClick?.(supplier)}
-                className="hover:bg-gray-50 cursor-pointer transition-colors"
-              >
-                <td className="px-4 py-3 font-medium text-gray-900">{supplier.name}</td>
-                <td className="px-4 py-3 text-gray-600">{supplier.country}</td>
-                <td className="px-4 py-3 text-gray-600">{supplier.category}</td>
-                <td className="px-4 py-3">
-                  <RiskBadge level={supplier.riskLevel} />
+            ) : hasActiveFilters && data?.data.length === 0 ? (
+              <tr>
+                <td colSpan={6} className="py-12 text-center text-gray-500">
+                  <div>
+                    <svg
+                      className="mx-auto h-12 w-12 text-gray-400"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="1"
+                        d="M3 3v18h18V3H3zm16 16H5V5h14v14zM8 11h8M8 15h4"
+                      />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-medium text-gray-800">No suppliers match your filters</h3>
+                  <p className="mt-1 text-sm text-gray-600">
+                    Try adjusting your search or filter criteria.
+                  </p>
+                  <div className="mt-6">
+                    <Button variant="secondary" onClick={resetFilters}>
+                      Clear Filters
+                    </Button>
+                  </div>
                 </td>
-                <td className="px-4 py-3">
-                  <StatusBadge status={supplier.status} />
-                </td>
-                <td className="px-4 py-3 text-gray-500">{supplier.lastAuditDate}</td>
               </tr>
-            ))}
+            ) : (
+              data?.data.map((supplier) => (
+                <tr
+                  key={supplier.id}
+                  onClick={() => onRowClick?.(supplier)}
+                  className="hover:bg-gray-50 cursor-pointer transition-colors"
+                >
+                  <td className="px-4 py-3 font-medium text-gray-900">{supplier.name}</td>
+                  <td className="px-4 py-3 text-gray-600">{supplier.country}</td>
+                  <td className="px-4 py-3 text-gray-600">{supplier.category}</td>
+                  <td className="px-4 py-3">
+                    <RiskBadge level={supplier.riskLevel} />
+                  </td>
+                  <td className="px-4 py-3">
+                    <StatusBadge status={supplier.status} />
+                  </td>
+                  <td className="px-4 py-3 text-gray-500">{supplier.lastAuditDate}</td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>

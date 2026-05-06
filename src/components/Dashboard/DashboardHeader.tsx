@@ -22,6 +22,12 @@ export const DashboardHeader = ({ title, onExport }: DashboardHeaderProps) => {
               Export CSV
             </Button>
           )}
+          <Button variant="secondary" size="sm">
+            New Action
+          </Button>
+          <Button variant="secondary" size="sm">
+            Random Button
+          </Button>
           {user && (
             <div className="flex items-center gap-2">
               <span className="text-sm text-gray-600">{user.name}</span>
