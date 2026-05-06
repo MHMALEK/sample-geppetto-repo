@@ -43,9 +43,10 @@ export const DataTable = ({ onRowClick }: DataTableProps) => {
             ) : hasActiveFilters && data?.data.length === 0 ? (
               <tr>
                 <td colSpan={6} className="py-12 text-center text-gray-500">
-                  <div className="mb-4">
+                  <div>
                     <svg
                       className="mx-auto h-12 w-12 text-gray-400"
+                      xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -54,8 +55,8 @@ export const DataTable = ({ onRowClick }: DataTableProps) => {
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        strokeWidth={1}
-                        d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                        strokeWidth="1"
+                        d="M3 3v18h18V3H3zm16 16H5V5h14v14zM8 11h8M8 15h4"
                       />
                     </svg>
                   </div>
