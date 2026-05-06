@@ -1,5 +1,6 @@
 import { Spinner } from 'components/common/Spinner';
-import { RiskBadge, StatusBadge } from 'components/common/Badge';
+import { StatusBadge } from 'components/common/Badge';
+import { RiskProgressBar } from 'components/common/RiskProgressBar';
 import { useSupplierList } from 'hooks/useSuppliers';
 import { useFilters } from 'hooks/useFilters';
 import { TableFilter } from './TableFilter';
@@ -29,7 +30,8 @@ export const DataTable = ({ onRowClick }: DataTableProps) => {
                 <th key={h} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide">
                   {h}
                 </th>
-              ))}
+                ))
+            )}
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-100">
@@ -39,7 +41,14 @@ export const DataTable = ({ onRowClick }: DataTableProps) => {
                   <Spinner className="mx-auto" />
                 </td>
               </tr>
-            ) : data?.data.map((supplier) => (
+            ) : data?.data.length === 0 ? (
+              <tr>
+                <td colSpan={6} className="py-12 text-center text-gray-500">
+                  No suppliers found.
+                </td>
+              </tr>
+            ) : (
+              data?.data.map((supplier) => (
               <tr
                 key={supplier.id}
                 onClick={() => onRowClick?.(supplier)}
@@ -49,7 +58,7 @@ export const DataTable = ({ onRowClick }: DataTableProps) => {
                 <td className="px-4 py-3 text-gray-600">{supplier.country}</td>
                 <td className="px-4 py-3 text-gray-600">{supplier.category}</td>
                 <td className="px-4 py-3">
-                  <RiskBadge level={supplier.riskLevel} />
+                  <RiskProgressBar score={supplier.riskScore} level={supplier.riskLevel} />
                 </td>
                 <td className="px-4 py-3">
                   <StatusBadge status={supplier.status} />
