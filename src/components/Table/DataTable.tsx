@@ -30,7 +30,8 @@ export const DataTable = ({ onRowClick }: DataTableProps) => {
                 <th key={h} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide">
                   {h}
                 </th>
-              ))}
+                ))
+            )}
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-100">
@@ -40,7 +41,14 @@ export const DataTable = ({ onRowClick }: DataTableProps) => {
                   <Spinner className="mx-auto" />
                 </td>
               </tr>
-            ) : data?.data.map((supplier) => (
+            ) : data?.data.length === 0 ? (
+              <tr>
+                <td colSpan={6} className="py-12 text-center text-gray-500">
+                  No suppliers found.
+                </td>
+              </tr>
+            ) : (
+              data?.data.map((supplier) => (
               <tr
                 key={supplier.id}
                 onClick={() => onRowClick?.(supplier)}
