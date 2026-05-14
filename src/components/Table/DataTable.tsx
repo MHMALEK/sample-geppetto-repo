@@ -1,10 +1,11 @@
 import { Spinner } from 'components/common/Spinner';
-import { RiskBadge, StatusBadge } from 'components/common/Badge';
+import { StatusBadge } from 'components/common/Badge';
 import { useSupplierList } from 'hooks/useSuppliers';
 import { useFilters } from 'hooks/useFilters';
 import { TableFilter } from './TableFilter';
 import type { Supplier } from 'types/supplier.types';
 import { Button } from 'components/common/Button';
+import { ProgressBar } from 'components/common/ProgressBar';
 
 interface DataTableProps {
   onRowClick?: (supplier: Supplier) => void;
@@ -82,7 +83,7 @@ export const DataTable = ({ onRowClick }: DataTableProps) => {
                   <td className="px-4 py-3 text-gray-600">{supplier.country}</td>
                   <td className="px-4 py-3 text-gray-600">{supplier.category}</td>
                   <td className="px-4 py-3">
-                    <RiskBadge level={supplier.riskLevel} />
+                    <ProgressBar score={supplier.riskScore} level={supplier.riskLevel} />
                   </td>
                   <td className="px-4 py-3">
                     <StatusBadge status={supplier.status} />
